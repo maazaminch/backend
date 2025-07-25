@@ -15,4 +15,4 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }) //in Es6 u can use storage, instead of storage: storage
 
-module.exports = { upload }
+module.exports = upload; 
