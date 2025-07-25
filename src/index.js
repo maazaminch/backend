@@ -1,7 +1,7 @@
 // index.js (your main entry file)
 const dotenv = require('dotenv');
 dotenv.config({ path: './.env' }); // or just dotenv.config() if using .env
-
+const app = require("./app.js")
 const connectDB = require('./db/index');
 
 connectDB()
