@@ -5,7 +5,8 @@ const asyncHandler = (requestHandler) => {
             ((err) => next(err));
     }
 }
-module.exports = { asyncHandler };
+
+module.exports = asyncHandler;
 
 
 

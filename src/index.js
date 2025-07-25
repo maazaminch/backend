@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './.env' }); // or just dotenv.config() if using .env
 const app = require("./app.js")
 const connectDB = require('./db/index');
+const router = require('./routes/user.routes.js')
 
 connectDB()
     .then(() => {
@@ -15,6 +16,8 @@ connectDB()
         console.log("MongoDB connection failed: ", err);
 
     })
+
+app.use(router)
 
 
 /*
