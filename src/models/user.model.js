@@ -90,6 +90,17 @@ userSchema.methods.generateRefreshToken = function () {
     )
 }
 
+// Inside your user.model.js
+userSchema.methods.generateAccessAndRefreshTokens = async function () {
+    const accessToken = this.generateAccessToken();
+    const refreshToken = this.generateRefreshToken();
+
+    this.refreshToken = refreshToken;
+    await this.save({ validateBeforeSave: false });
+
+    return { accessToken, refreshToken };
+};
+
 
 const User = mongoose.model('User', userSchema)
 
