@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { registerUser, loggedInUser, loggedOutUser, refreshAccessToken } = require("../controllers/user.controller.js");
+const { registerUser, loggedInUser, loggedOutUser, refreshAccessToken, changePassword, getCurrentUser } = require("../controllers/user.controller.js");
 const upload = require('../middlewares/multer.middleware.js');
 const { verifyJWT } = require("../middlewares/auth.middleware.js");
 const router = Router()
@@ -17,8 +17,8 @@ router.route("/register").post(
     ]),
     registerUser
 )
-
 router.route("/login").post(loggedInUser)
+router.route("/change-password").post(changePassword)
 
 //secure routes
 router.route("/logout").post(verifyJWT, loggedOutUser)
